@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Results</title>
+    <style>
+        body {
+            background-image: url("https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg");
+            background-size: cover; /* Adjust as needed */
+            /* Other background properties can be added here */
+            position: relative; /* Set the body to relative position */
+            min-height: 100vh; /* Make sure the body fills the entire viewport */
+            margin: 0; /* Remove default body margin */
+            padding: 20px; /* Add some padding */
+        }
+
+        h1 {
+            margin: 0; /* Remove default margin */
+            background-color: black; /* Background color for the h1 */
+            color: white; /* Text color for the h1 */
+            font-size: 35px;
+            padding: 20px; /* Add padding to the h1 */
+            position: absolute; /* Position the h1 absolutely */
+            top: 20px; /* Position the h1 at the top */
+            left: 50%; /* Center the h1 horizontally */
+            transform: translateX(-50%); /* Center the h1 horizontally */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+            text-align: center; /* Center list items */
+            position: absolute; /* Position the ul absolutely */
+            top: 50%; /* Position the ul at the vertical center */
+            left: 50%; /* Position the ul at the horizontal center */
+            transform: translate(-50%, -50%); /* Center the ul both vertically and horizontally */
+        }
+
+        li {
+            margin-bottom: 10px; /* Add some space between list items */
+        }
+
+        a {
+            color: white; /* Text color for the links */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        h4 {
+            background-color: blue;
+            color: white; /* Text color for the h4 */
+            padding: 05px; /* Add padding to each row */
+        }
+    </style>
+</head>
+<body>
+    <h1>Relevant Movie Titles</h1>
+    <ul>
+        {% for item in documents %}
+            <li class="documents">
+                {% for movie_name in item %}
+                    <h4>Name: {{ movie_name }} | Link: <a href="https://www.opensubtitles.org/en/subtitles/{{ loop.index }}">Subtitles</a></h4>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
